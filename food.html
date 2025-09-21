@@ -1,913 +1,507 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gourmet Delights - Food Menu</title>
+    <title> The Royal Indian Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #ff6b6b;
-            --secondary-color: #feca57;
-            --dark-bg: #1e272e;
-            --darker-bg: #1a2228;
-            --text-color: #f5f6fa;
-            --card-bg: #2f3640;
-            --card-hover: #353b48;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
-        
+
         body {
-            background-color: var(--dark-bg);
-            color: var(--text-color);
-            overflow-x: hidden;
+            background: linear-gradient(to bottom, #1a1a1a, #2c0c0c);
+            color: #d4af37;
+            min-height: 100vh;
+            padding-bottom: 50px;
         }
-        
-        header {
-            background: linear-gradient(135deg, var(--darker-bg), var(--dark-bg));
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 107, 107, 0.1) 0%, transparent 70%);
-            animation: pulse 15s infinite linear;
-            z-index: 0;
-        }
-        
-        @keyframes pulse {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            position: relative;
-            z-index: 1;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            opacity: 0.8;
-            position: relative;
-            z-index: 1;
-        }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 20px;
         }
-        
-        .menu-categories {
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #d4af37;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #f8f8f8;
+            margin-bottom: 20px;
+        }
+
+        .search-container {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 30px;
         }
-        
-        .category-btn {
-            padding: 0.8rem 1.5rem;
-            background: var(--card-bg);
-            border: none;
-            color: var(--text-color);
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .category-btn:hover, .category-btn.active {
-            background: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(255, 107, 107, 0.3);
-        }
-        
-        .menu-section {
-            margin-bottom: 4rem;
-        }
-        
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--secondary-color);
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
+
+        .search-input {
+            padding: 12px 20px;
             width: 100%;
-            height: 3px;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            border-radius: 3px;
+            max-width: 500px;
+            border: 1px solid #d4af37;
+            border-radius: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
         }
-        
+
+        .search-input::placeholder {
+            color: #aaa;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .category-btn {
+            padding: 10px 20px;
+            background: transparent;
+            border: 2px solid #d4af37;
+            color: #d4af37;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background: #d4af37;
+            color: #1a1a1a;
+        }
+
         .menu-items {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 25px;
+            margin-bottom: 40px;
         }
-        
+
         .menu-item {
-            background: var(--card-bg);
-            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-            transform-style: preserve-3d;
-            perspective: 1000px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #d4af37;
         }
-        
+
         .menu-item:hover {
-            transform: translateY(-10px) rotateX(5deg);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            background: var(--card-hover);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
         }
-        
-        .menu-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .menu-item:hover::before {
-            opacity: 1;
-        }
-        
-        .item-content {
-            padding: 1.5rem;
-        }
-        
-        .item-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--secondary-color);
+
+        .item-image {
+            height: 200px;
+            background: linear-gradient(45deg, #2c0c0c, #1a1a1a);
             display: flex;
-            justify-content: space-between;
+            align-items: center;
+            justify-content: center;
+            color: #d4af37;
+            font-size: 3rem;
         }
-        
+
+        .item-details {
+            padding: 20px;
+        }
+
+        .item-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #d4af37;
+            border-bottom: 1px solid #d4af37;
+            padding-bottom: 8px;
+        }
+
+        .item-desc {
+            color: #f8f8f8;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
         .item-price {
-            color: var(--primary-color);
+            font-size: 1.3rem;
+            color: #d4af37;
             font-weight: bold;
-        }
-        
-        .item-description {
-            opacity: 0.8;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        
-        .item-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .add-to-cart {
-            background: var(--primary-color);
-            color: white;
+            background: #d4af37;
+            color: #1a1a1a;
             border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
+            padding: 8px 15px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            
+            font-weight: bold;
+            transition: background 0.3s;
         }
-        
+
         .add-to-cart:hover {
-            background: #ff5252;
-            transform: scale(1.05);
+            background: #c19b2e;
         }
-        
-        .veg-nonveg {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: green;
-            position: relative;
-        }
-        
-        .veg-nonveg::after {
-            content: '';
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: white;
-        }
-        
-        .non-veg {
-            background-color: red;
-        }
-        
-        .cart-icon {
+
+        .cart-container {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: var(--primary-color);
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .cart-btn {
+            background: #d4af37;
+            color: #1a1a1a;
             width: 60px;
             height: 60px;
             border-radius: 50%;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
-            z-index: 100;
-            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
         }
-        
-        .cart-icon:hover {
+
+        .cart-btn:hover {
             transform: scale(1.1);
         }
-        
+
         .cart-count {
             position: absolute;
             top: -5px;
             right: -5px;
-            background: var(--secondary-color);
-            color: var(--dark-bg);
+            background: #ff3860;
+            color: white;
             width: 25px;
             height: 25px;
             border-radius: 50%;
             display: flex;
+            align-items: center;
             justify-content: center;
-            align-items: center;
-            font-weight: bold;
-        }
-        
-        .cart-modal {
-            position: fixed;
-            top: 0;
-            right: -400px;
-            width: 400px;
-            height: 100vh;
-            background: var(--darker-bg);
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-            transition: right 0.4s ease;
-            z-index: 99;
-            padding: 2rem;
-            overflow-y: auto;
-        }
-        
-        .cart-modal.active {
-            right: 0;
-        }
-        
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-        
-        .close-cart {
-            background: none;
-            border: none;
-            color: var(--text-color);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        .cart-items {
-            margin-bottom: 2rem;
-        }
-        
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .cart-total {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-        }
-        
-        .checkout-btn {
-            width: 100%;
-            padding: 1rem;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .checkout-btn:hover {
-            background: #ff5252;
-        }
-        
-        @media (max-width: 768px) {
-            .menu-items {
-                grid-template-columns: 1fr;
-            }
-            
-            .cart-modal {
-                width: 100%;
-                right: -100%;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-            }
-        }
-        
-        /* Floating animation for food items */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .floating {
-            animation: float 4s ease-in-out infinite;
-        }
-        
-        /* Special highlight for featured items */
-        .featured {
-            border: 2px solid var(--primary-color);
-            position: relative;
-        }
-        
-        .featured::after {
-            content: 'Featured';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--primary-color);
-            color: white;
-            padding: 0.2rem 0.5rem;
-            border-radius: 5px;
             font-size: 0.8rem;
             font-weight: bold;
         }
-        
-        /* Search bar */
-        .search-container {
-            margin: 2rem 0;
-            position: relative;
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
         }
-        
-        .search-input {
-            width: 100%;
-            padding: 1rem 1.5rem;
-            border-radius: 50px;
-            border: none;
-            background: var(--card-bg);
-            color: var(--text-color);
-            font-size: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
-        
-        .search-input:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px var(--primary-color);
-        }
-        
-        /* Loading animation */
+
         .loader {
-            display: none;
             text-align: center;
-            margin: 2rem 0;
+            font-size: 2rem;
+            color: #d4af37;
+            display: none;
         }
-        
+
         .loader.active {
             display: block;
         }
-        
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top: 4px solid var(--primary-color);
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <header>
-        <h1>Gourmet Delights</h1>
-        <p class="tagline">Savor the flavors of exquisite cuisine</p>
-    </header>
-    
-    <div class="container">
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="Search for dishes...">
-        </div>
-        
-        <div class="menu-categories">
-            <button class="category-btn active" data-category="all">All Items</button>
-            <button class="category-btn" data-category="appetizers">Appetizers</button>
-            <button class="category-btn" data-category="main-course">Main Course</button>
-            <button class="category-btn" data-category="breads">Breads</button>
-            <button class="category-btn" data-category="desserts">Desserts</button>
-            <button class="category-btn" data-category="chinese">Chinese</button>
-            <button class="category-btn" data-category="beverages">Beverages</button>
-        </div>
-        
-        <div class="loader">
-            <div class="spinner"></div>
-            <p>Loading delicious items...</p>
-        </div>
-        
-        <div class="menu-sections">
-            <!-- Appetizers Section -->
-            <section class="menu-section" id="appetizers">
-                <h2 class="section-title">APPETIZERS</h2>
-                <div class="menu-items">
-                    <!-- Mineral Water -->
-                    <div class="menu-item" data-category="appetizers beverages">
-                        <div class="item-content">
-                            <h3 class="item-title">Mineral Water</h3>
-                            <div class="item-description">Refreshing natural mineral water</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Mineral Water" data-price="20">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Fresh Lemon Water -->
-                    <div class="menu-item" data-category="appetizers beverages">
-                        <div class="item-content">
-                            <h3 class="item-title">Fresh Lemon Water sweet salt <span class="item-price">₹40</span></h3>
-                            <div class="item-description">Sweet and salty fresh lemon water</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Fresh Lemon Water" data-price="40" ><a href="op.html">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Fresh Lemon Soda -->
-                    <div class="menu-item" data-category="appetizers beverages">
-                        <div class="item-content">
-                            <h3 class="item-title">Fresh Lemon Soda sweet salt <span class="item-price">₹45</span></h3>
-                            <div class="item-description">Sweet and salty fresh lemon soda</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Fresh Lemon Soda" data-price="45">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Lassi -->
-                    <div class="menu-item" data-category="appetizers beverages">
-                        <div class="item-content">
-                            <h3 class="item-title">Lassi sweet salt <span class="item-price">₹80</span></h3>
-                            <div class="item-description">Sweet or salty traditional yogurt drink</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Lassi" data-price="80">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Jal Jeera -->
-                    <div class="menu-item" data-category="appetizers beverages">
-                        <div class="item-content">
-                            <h3 class="item-title">Jal Jeera <span class="item-price">₹45</span></h3>
-                            <div class="item-description">Refreshing cumin-flavored drink</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Jal Jeera" data-price="45">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Paratha Section -->
-            <section class="menu-section" id="paratha">
-                <h2 class="section-title">PARATHA</h2>
-                <div class="menu-items">
-                    <!-- Aaloo Paratha -->
-                    <div class="menu-item featured" data-category="main-course breads">
-                        <div class="item-content">
-                            <h3 class="item-title">Aaloo Paratha <span class="item-price">₹60</span></h3>
-                            <div class="item-description">Stuffed with spiced mashed potatoes</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Aaloo Paratha" data-price="60">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Onion Paratha -->
-                    <div class="menu-item" data-category="main-course breads">
-                        <div class="item-content">
-                            <h3 class="item-title">Onion Paratha <span class="item-price">₹55</span></h3>
-                            <div class="item-description">Stuffed with finely chopped onions</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Onion Paratha" data-price="55">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Gobi Paratha -->
-                    <div class="menu-item" data-category="main-course breads">
-                        <div class="item-content">
-                            <h3 class="item-title">Gobi Paratha <span class="item-price">₹65</span></h3>
-                            <div class="item-description">Stuffed with spiced cauliflower</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Gobi Paratha" data-price="65">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Paneer Paratha -->
-                    <div class="menu-item featured" data-category="main-course breads">
-                        <div class="item-content">
-                            <h3 class="item-title">Paneer Paratha <span class="item-price">₹80</span></h3>
-                            <div class="item-description">Stuffed with spiced cottage cheese</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Paneer Paratha" data-price="80">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Veg Main Course Section -->
-            <section class="menu-section" id="main-course">
-                <h2 class="section-title">VEG MAIN COURSE</h2>
-                <div class="menu-items">
-                    <!-- Mix Veg -->
-                    <div class="menu-item" data-category="main-course">
-                        <div class="item-content">
-                            <h3 class="item-title">Mix Veg <span class="item-price">₹120</span></h3>
-                            <div class="item-description">Assorted vegetables in rich gravy</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Mix Veg" data-price="120">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Aloo Gobi -->
-                    <div class="menu-item" data-category="main-course">
-                        <div class="item-content">
-                            <h3 class="item-title">Aloo Gobi <span class="item-price">₹110</span></h3>
-                            <div class="item-description">Potato and cauliflower dry curry</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Aloo Gobi" data-price="110">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Dum Aloo -->
-                    <div class="menu-item featured" data-category="main-course">
-                        <div class="item-content">
-                            <h3 class="item-title">Dum Aloo <span class="item-price">₹130</span></h3>
-                            <div class="item-description">Baby potatoes in spicy gravy</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Dum Aloo" data-price="130">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Aloo Jeera -->
-                    <div class="menu-item" data-category="main-course">
-                        <div class="item-content">
-                            <h3 class="item-title">Aloo Jeera <span class="item-price">₹100</span></h3>
-                            <div class="item-description">Cumin flavored potato curry</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Aloo Jeera" data-price="100">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Paneer Section -->
-            <section class="menu-section" id="paneer">
-                <h2 class="section-title">PANEER SPECIALTIES</h2>
-                <div class="menu-items">
-                    <!-- Kadai Paneer -->
-                    <div class="menu-item featured" data-category="main-course">
-                        <div class="item-content">
-                            <h3 class="item-title">Kadai Paneer <span class="item-price">₹150</span></h3>
-                            <div class="item-description">Cottage cheese in kadai masala</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Kadai Paneer" data-price="150">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Shahi Paneer -->
-                    <div class="menu-item" data-category="main-course">
-                        <div class="item-content">
-                            <h3 class="item-title">Shahi Paneer <span class="item-price">₹160</span></h3>
-                            <div class="item-description">Cottage cheese in rich creamy gravy</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Shahi Paneer" data-price="160">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Palak Paneer -->
-                    <div class="menu-item" data-category="main-course">
-                        <div class="item-content">
-                            <h3 class="item-title">Palak Paneer <span class="item-price">₹140</span></h3>
-                            <div class="item-description">Cottage cheese in spinach gravy</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Palak Paneer" data-price="140">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Paneer Tikka Masala -->
-                    <div class="menu-item featured" data-category="main-course">
-                        <div class="item-content">
-                            <h3 class="item-title">Paneer Tikka Masala <span class="item-price">₹170</span></h3>
-                            <div class="item-description">Grilled cottage cheese in spicy gravy</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Paneer Tikka Masala" data-price="170">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- More sections would follow the same pattern -->
-            
-            <!-- Desserts Section -->
-            <section class="menu-section" id="desserts">
-                <h2 class="section-title">DESSERTS</h2>
-                <div class="menu-items">
-                    <!-- Gulab Jamun -->
-                    <div class="menu-item featured" data-category="desserts">
-                        <div class="item-content">
-                            <h3 class="item-title">Gulab Jamun (2P) <span class="item-price">₹60</span></h3>
-                            <div class="item-description">Deep fried milk balls in sugar syrup</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Gulab Jamun (2P)" data-price="60">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Rasgulla -->
-                    <div class="menu-item" data-category="desserts">
-                        <div class="item-content">
-                            <h3 class="item-title">Rasgulla (2P) <span class="item-price">₹50</span></h3>
-                            <div class="item-description">Soft cottage cheese balls in light syrup</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Rasgulla (2P)" data-price="50">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Ice Cream -->
-                    <div class="menu-item" data-category="desserts">
-                        <div class="item-content">
-                            <h3 class="item-title">Ice Cream <span class="item-price">₹70</span></h3>
-                            <div class="item-description">Vanilla, chocolate or strawberry</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Ice Cream" data-price="70">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Chinese Section -->
-            <section class="menu-section" id="chinese">
-                <h2 class="section-title">CHINESE SPECIALTIES</h2>
-                <div class="menu-items">
-                    <!-- Veg Momo -->
-                    <div class="menu-item featured" data-category="chinese appetizers">
-                        <div class="item-content">
-                            <h3 class="item-title">Veg Momo <span class="item-price">₹90</span></h3>
-                            <div class="item-description">Steamed vegetable dumplings</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Veg Momo" data-price="90">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Veg Spring Roll -->
-                    <div class="menu-item" data-category="chinese appetizers">
-                        <div class="item-content">
-                            <h3 class="item-title">Veg Spring Roll <span class="item-price">₹110</span></h3>
-                            <div class="item-description">Crispy vegetable spring rolls</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Veg Spring Roll" data-price="110">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Veg Manchurian -->
-                    <div class="menu-item" data-category="chinese main-course">
-                        <div class="item-content">
-                            <h3 class="item-title">Veg Manchurian <span class="item-price">₹130</span></h3>
-                            <div class="item-description">Vegetable balls in tangy sauce</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Veg Manchurian" data-price="130">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Veg Fried Rice -->
-                    <div class="menu-item" data-category="chinese main-course">
-                        <div class="item-content">
-                            <h3 class="item-title">Veg Fried Rice <span class="item-price">₹120</span></h3>
-                            <div class="item-description">Stir fried rice with vegetables</div>
-                            <div class="item-footer">
-                                <div class="veg-nonveg"></div>
-                                <button class="add-to-cart" data-item="Veg Fried Rice" data-price="120">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
-    
-    <!-- Cart Icon -->
-    <div class="cart-icon" id="cartIcon">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="cart-count">0</span>
-    </div>
-    
-    <!-- Cart Modal -->
-    <div class="cart-modal" id="cartModal">
-        <div class="cart-header">
-            <h2>Your Order</h2>
-            <button class="close-cart" id="closeCart">&times;</button>
-        </div>
-        <div class="cart-items" id="cartItems">
-            <!-- Cart items will be added here dynamically -->
-        </div>
-        <div class="cart-total" id="cartTotal">
-            Total: ₹0
-        </div>
-        <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
-    </div>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Cart functionality
-            const cartIcon = document.getElementById('cartIcon');
-            const cartModal = document.getElementById('cartModal');
-            const closeCart = document.getElementById('closeCart');
-            const cartItemsContainer = document.getElementById('cartItems');
-            const cartTotal = document.getElementById('cartTotal');
-            const cartCount = document.querySelector('.cart-count');
-            const checkoutBtn = document.getElementById('checkoutBtn');
-            
-            let cart = [];
-            
-            // Toggle cart modal
-            cartIcon.addEventListener('click', function() {
-                cartModal.classList.toggle('active');
-            });
-            
-            closeCart.addEventListener('click', function() {
-                cartModal.classList.remove('active');
-            });
-            
-            // Add to cart functionality
-            const addToCartButtons = document.querySelectorAll('.add-to-cart');
-            addToCartButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const item = this.getAttribute('data-item');
-                    const price = parseFloat(this.getAttribute('data-price'));
-                    
-                    // Check if item already in cart
-                    const existingItem = cart.find(cartItem => cartItem.name === item);
-                    
-                    if (existingItem) {
-                        existingItem.quantity += 1;
-                    } else {
-                        cart.push({
-                            name: item,
-                            price: price,
-                            quantity: 1
-                        });
-                    }
-                    
-                    updateCart();
-                    
-                    // Add animation to cart icon
-                    cartIcon.classList.add('floating');
-                    setTimeout(() => {
-                        cartIcon.classList.remove('floating');
-                    }, 1000);
-                });
-            });
-            
-            // Update cart display
-            function updateCart() {
-                // Clear cart items
-                cartItemsContainer.innerHTML = '';
-                
-                let total = 0;
-                
-                // Add each item to cart
-                cart.forEach(item => {
-                    const itemTotal = item.price * item.quantity;
-                    total += itemTotal;
-                    
-                    const cartItemElement = document.createElement('div');
-                    cartItemElement.className = 'cart-item';
-                    cartItemElement.innerHTML = `
-                        <div>
-                            <h4>${item.name}</h4>
-                            <p>₹${item.price} x ${item.quantity}</p>
-                        </div>
-                        <div>
-                            <p>₹${itemTotal.toFixed(2)}</p>
-                        </div>
-                    `;
-                    
-                    cartItemsContainer.appendChild(cartItemElement);
-                });
-                
-                // Update total and count
-                cartTotal.textContent = `Total: ₹${total.toFixed(2)}`;
-                cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+        @media (max-width: 768px) {
+            .menu-items {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
             
-            // Checkout button
-            checkoutBtn.addEventListener('click', function() {
-                if (cart.length === 0) {
-                    alert('Your cart is empty!');
-                    return;
-                }
-                
-                // In a real app, this would redirect to checkout page
-                alert(`Order placed! Total: ₹${cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2)}`);
-                cart = [];
-                updateCart();
-                cartModal.classList.remove('active');
-            });
+            h1 {
+                font-size: 2rem;
+            }
             
+            .logo {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-utensils"></i>
+            </div>
+            <h1> The Royal  Restaurant& cafe </h1>
+            <p class="tagline">Authentic Flavors Fit for Royalty</p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search for delicacies...">
+        </div>
+
+        <div class="categories">
+            <button class="category-btn active" data-category="all">All</button>
+            <button class="category-btn" data-category="paneer">Paneer</button>
+            <button class="category-btn" data-category="main-course">Main Course</button>
+            <button class="category-btn" data-category="starters">Starters</button>
+            <button class="category-btn" data-category="breads">Breads</button>
+            <button class="category-btn" data-category="rice">Rice & Biryani</button>
+            <button class="category-btn" data-category="desserts">Desserts</button>
+            <button class="category-btn" data-category="drinks">Drinks</button>
+        </div>
+
+        <div class="loader">Loading...</div>
+
+        <div class="menu-items">
+            <!-- Menu items will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <div class="cart-container">
+        <div class="cart-btn">
+            <i class="fas fa-shopping-cart"></i>
+            <div class="cart-count">0</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu data based on the provided screenshots
+            const menuData = [
+                // Paneer dishes
+                { title: "KADAI PANEER", description: "Cubes of paneer cooked with bell peppers, onions and spicy gravy.", price: 220, category: "paneer", image: "fas fa-cheese" },
+                { title: "SHAHI PANEER", description: "Paneer in a rich, creamy gravy with cashew and tomato base.", price: 260, category: "paneer", image: "fas fa-cheese" },
+                { title: "PALAK PANEER", description: "Paneer cubes in a smooth spinach gravy with spices.", price: 240, category: "paneer", image: "fas fa-cheese" },
+                { title: "MATAR PANEER", description: "Paneer and green peas cooked in a tomato-based gravy.", price: 190, category: "paneer", image: "fas fa-cheese" },
+                { title: "PANEER KALI MIRCHI", description: "Paneer cooked with black pepper and spices.", price: 280, category: "paneer", image: "fas fa-cheese" },
+                { title: "PANEER LABABDARA", description: "Paneer in a rich, creamy and tangy gravy.", price: 260, category: "paneer", image: "fas fa-cheese" },
+                { title: "PANEER TIKKA MASALA", description: "Grilled paneer cubes in a spicy and creamy tomato gravy.", price: 360, category: "paneer", image: "fas fa-cheese" },
+                { title: "PANEER MALAI KOFTA", description: "Paneer dumplings in a rich, creamy gravy.", price: 320, category: "paneer", image: "fas fa-cheese" },
+                { title: "MASHROOM PANEER", description: "Paneer and mushrooms cooked in spicy gravy.", price: 280, category: "paneer", image: "fas fa-cheese" },
+                { title: "PANEER DO PYMAZA", description: "Paneer cooked with lots of onions in a rich gravy.", price: 220, category: "paneer", image: "fas fa-cheese" },
+                { title: "HANDI PANEER", description: "Paneer cooked in traditional handi with spices.", price: 280, category: "paneer", image: "fas fa-cheese" },
+                { title: "KAJU KARI", description: ".", price: 360, category: "paneer", image: "fas fa-cheese" },
+
+                // Main Course
+                { title: "MIX VEG", description: "Assorted vegetables cooked in Indian spices.", price: 160, category: "main-course", image: "fas fa-carrot" },
+                { title: "ALOO GOBI", description: "Potatoes and cauliflower cooked with spices.", price: 150, category: "main-course", image: "fas fa-carrot" },
+                { title: "DUM ALOO", description: "Baby potatoes cooked in rich gravy.", price: 220, category: "main-course", image: "fas fa-carrot" },
+                { title: "CHANA MASALA", description: "Chickpeas cooked in onion-tomato gravy.", price: 160, category: "main-course", image: "fas fa-carrot" },
+                { title: "RAJMA MASALA", description: "Kidney beans cooked in spicy gravy.", price: 160, category: "main-course", image: "fas fa-carrot" },
+                { title: "BAIGAN BHARYA", description: "Stuffed eggplant cooked with spices.", price: 160, category: "main-course", image: "fas fa-carrot" },
+
+                // Mushroom dishes
+                { title: "MASHROOM MASALA", description: "Mushrooms cooked in spicy gravy.", price: 200, category: "main-course", image: "fas fa-carrot" },
+                 { title: "MATTER MASHROOM", description: "Mushrooms cooked in spicy gravy.", price: 200, category: "main-course", image: "fas fa-carrot" },
+                 { title: "MASHROOM DO PYAZA", description: "Mushrooms cooked in spicy gravy.", price: 200, category: "main-course", image: "fas fa-carrot" },
+                 { title: "MASHROOM LABABDAR", description: "Mushrooms cooked in spicy gravy.", price: 200, category: "main-course", image: "fas fa-carrot" },
+                { title: "KADAI MASHROOM", description: "Mushrooms cooked with bell peppers and spices.", price: 240, category: "main-course", image: "fas fa-carrot" },
+                { title: "MASHROOM TIKKA MASALA", description: "Mushrooms cooked in spicy gravy.", price: 200, category: "main-course", image: "fas fa-carrot" },
+
+                // Dal dishes
+                { title: "DAL FRY", description: "Tempered lentils cooked with spices.", price: 140, category: "main-course", image: "fas fa-carrot" },
+                { title: "DAL TADKA", description: "Lentils tempered with spices.", price: 160, category: "main-course", image: "fas fa-carrot" },
+                { title: "DAL MAKHANI", description: "Creamy black lentils cooked overnight.", price: 180, category: "main-course", image: "fas fa-carrot" },
+                { title: "DAL URAD RAJAMA FRY", description: "Creamy black lentils cooked overnight.", price: 160, category: "main-course", image: "fas fa-carrot" },
+                { title: "DAL MASALA", description: "Creamy black lentils cooked overnight.", price: 180, category: "main-course", image: "fas fa-carrot" },
+
+
+                // Starters
+                { title: "VEG MOMO", description: "Steamed dumplings filled with vegetables.", price: 100, category: "starters", image: "fas fa-drumstick-bite" },
+                { title: "VEG FRIED MOMO", description: "Deep fried vegetable dumplings.", price: 110, category: "starters", image: "fas fa-drumstick-bite" },
+                { title: "VEG SPRING ROLL", description: "Crispy rolls filled with vegetables.", price: 120, category: "starters", image: "fas fa-drumstick-bite" },
+                { title: "VEG MANCHURIAN DRY", description: "Vegetable balls in spicy sauce.", price: 170, category: "starters", image: "fas fa-drumstick-bite" },
+                { title: "CHILLI PANEER", description: "Paneer cubes in spicy chilli sauce.", price: 240, category: "starters", image: "fas fa-drumstick-bite" },
+                { title: "PANEER TIKKA", description: "Grilled marinated paneer cubes.", price: 280, category: "starters", image: "fas fa-drumstick-bite" },
+
+                // Breads
+                { title: "AALOO PARATHA", description: "Whole wheat bread stuffed with spiced potatoes.", price: 100, category: "breads", image: "fas fa-bread-slice" },
+                { title: "ONION PARATHA", description: "Paratha stuffed with onions and spices.", price: 110, category: "breads", image: "fas fa-bread-slice" },
+                { title: "PANEER PARATHA", description: "Paratha stuffed with spiced paneer.", price: 130, category: "breads", image: "fas fa-bread-slice" },
+                { title: "BUTTER NAAN", description: "Tandoor-baked leavened bread with butter.", price: 40, category: "breads", image: "fas fa-bread-slice" },
+                { title: "LACHA PARATHA", description: "Layered flatbread cooked with ghee.", price: 40, category: "breads", image: "fas fa-bread-slice" },
+
+                // Rice & Biryani
+                 {
+  title: "Plain Rice",
+  description: "Steamed basmati rice",
+  price: 30,
+  category: "Rice Biryani",
+  image: "fas fa-utensil-spoon"
+},
+{
+  title: "Jeera Rice",
+  description: "Basmati rice tempered with cumin seeds",
+  price: 100,
+  category: "Rice Biryani",
+  image: "fas fa-utensil-spoon"
+},
+{
+  title: "Matar Pulao",
+  description: "Fragrant rice cooked with green peas",
+  price: 120,
+  category: "Rice Biryani",
+  image: "fas fa-utensil-spoon"
+},
+{
+  title: "Veg Biriyani",
+  description: "Vegetable biryani served with refreshing raita",
+  price: 180,
+  category: "Rice Biryani",
+  image: "fas fa-utensil-spoon"
+},
+{
+  title: "Hyderabadi Biryani",
+  description: "Spicy and aromatic biryani served with raita",
+  price: 200,
+  category: "Rice Biryani",
+  image: "fas fa-utensil-spoon"
+},
+{
+  title: "Dum Biryani",
+  description: "Slow-cooked biryani served with raita",
+  price: 200,
+  category: "Rice Biryani",
+  image: "fas fa-utensil-spoon"
+},
+{
+  title: "Veg Pulao",
+  description: "Mixed vegetable pulao served with raita",
+  price: 150,
+  category: "Rice Biryani",
+  image: "fas fa-utensil-spoon"
+},
+{
+  title: "Dal Khichdi",
+  description: "Comforting lentil and rice dish served with raita",
+  price: 150,
+  category: "Rice Biryani",
+  image: "fas fa-utensil-spoon"
+},
+{
+  title: "Veg Fried Rice",
+  description: "Stir-fried rice with mixed vegetables",
+  price: 140,
+  category: "Rice Biryani",
+  image: "fas fa-utensil-spoon"
+},
+{
+  title: "Onion Fried Rice",
+  description: "Fried rice with onions and subtle spices",
+  price: 150,
+  category: "Rice Biryani",
+  image: "fas fa-utensil-spoon"
+},
+{
+  title: "Paneer Fried Rice",
+  description: "Fried rice with cubes of paneer (cottage cheese)",
+  price: 160,
+  category: "Rice Biryani",
+  image: "fas fa-utensil-spoon"
+},
+{
+  title: "Manchurian Fried Rice",
+  description: "Indo-Chinese style fried rice with vegetable manchurian",
+  price: 200,
+  category: "Rice Biryani",
+  image: "fas fa-utensil-spoon"
+},
+{
+                 title: "Mashroom Fried Rice",
+                   description: "Fried rice with sautéed mushrooms",
+                price: 180,
+                 category: "Rice Biryani",
+                 image: "fas fa-utensil-spoon"
+                       },
+                   {
+                title: "Schezwan Fried Rice",
+                description: "Spicy Schezwan sauce flavored fried rice",
+                price: 180,
+                category: "Rice Biryani",
+                image: "fas fa-utensil-spoon"
+                },
+
+                // Desserts
+                { title: "RAS MALAI", description: "Soft cheese patties in sweetened milk.", price: 70, category: "desserts", image: "fas fa-ice-cream" },
+                { title: "GULAB JAMUN", description: "Deep-fried milk solids in sugar syrup.", price: 70, category: "desserts", image: "fas fa-ice-cream" },
+
+                // Drinks
+                { title: "SPECIAL KULHAD TEA", description: "Traditional Indian tea served in clay cup.", price: 40, category: "drinks", image: "fas fa-mug-hot" },
+                { title: "COLD COFFEE", description: "Chilled coffee with ice cream.", price: 100, category: "drinks", image: "fas fa-mug-hot" },
+                { title: "LASSI", description: "Sweet yogurt-based drink.", price: 80, category: "drinks", image: "fas fa-glass-whiskey" }
+            ];
+
+            const menuItemsContainer = document.querySelector('.menu-items');
+            const cartCount = document.querySelector('.cart-count');
+            let cartItems = 0;
+
+            // Function to generate menu items
+            function generateMenuItems(items) {
+                menuItemsContainer.innerHTML = '';
+                items.forEach(item => {
+                    const menuItem = document.createElement('div');
+                    menuItem.className = 'menu-item';
+                    menuItem.setAttribute('data-category', item.category);
+                    menuItem.innerHTML = `
+                        <div class="item-image">
+                            <i class="${item.image}"></i>
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-title">${item.title}</h3>
+                            <p class="item-desc">${item.description}</p>
+                            <div class="item-price">
+                                ₹${item.price}
+                                <button class="add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    `;
+                    menuItemsContainer.appendChild(menuItem);
+                });
+
+                // Add event listeners to Add to Cart buttons
+                const addToCartButtons = document.querySelectorAll('.add-to-cart');
+                addToCartButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        cartItems++;
+                        cartCount.textContent = cartItems;
+                        // Animation effect
+                        this.textContent = 'Added!';
+                        setTimeout(() => {
+                            this.textContent = 'Add to Cart';
+                        }, 1500);
+                    });
+                });
+            }
+
+            // Initial load
+            generateMenuItems(menuData);
+
             // Category filtering
             const categoryButtons = document.querySelectorAll('.category-btn');
             const menuItems = document.querySelectorAll('.menu-item');
@@ -941,15 +535,13 @@
                     }, 500);
                 });
             });
-            
+
             // Search functionality
             const searchInput = document.querySelector('.search-input');
             searchInput.addEventListener('input', function() {
                 const searchTerm = this.value.toLowerCase();
-                
                 menuItems.forEach(item => {
                     const itemName = item.querySelector('.item-title').textContent.toLowerCase();
-                    
                     if (itemName.includes(searchTerm)) {
                         item.style.display = 'block';
                     } else {
@@ -957,11 +549,10 @@
                     }
                 });
             });
-            
+
             // Add floating animation to random items
             const allMenuItems = document.querySelectorAll('.menu-item');
             const randomItems = Array.from(allMenuItems).sort(() => 0.5 - Math.random()).slice(0, 5);
-            
             randomItems.forEach(item => {
                 item.classList.add('floating');
             });

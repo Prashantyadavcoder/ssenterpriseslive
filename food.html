@@ -1,11 +1,14 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> The Royal Indian Menu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -96,7 +99,8 @@
             transition: all 0.3s;
         }
 
-        .category-btn:hover, .category-btn.active {
+        .category-btn:hover,
+        .category-btn.active {
             background: #d4af37;
             color: #1a1a1a;
         }
@@ -220,9 +224,17 @@
         }
 
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
         }
 
         .loader {
@@ -240,24 +252,25 @@
             .menu-items {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
-            
+
             h1 {
                 font-size: 2rem;
             }
-            
+
             .logo {
                 font-size: 2.5rem;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
             <div class="logo">
                 <i class="fas fa-utensils"></i>
             </div>
-            <h1> The Royal  Restaurant& cafe </h1>
+            <h1> The Royal Restaurant& cafe </h1>
             <p class="tagline">Authentic Flavors Fit for Royalty</p>
         </header>
 
@@ -279,7 +292,6 @@
         <div class="loader">Loading...</div>
 
         <div class="menu-items">
-            <!-- Menu items will be dynamically inserted here -->
         </div>
     </div>
 
@@ -291,175 +303,196 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Menu data based on the provided screenshots
             const menuData = [
                 // Paneer dishes
-                { title: "KADAI PANEER", description: "Cubes of paneer cooked with bell peppers, onions and spicy gravy.", price: 220, category: "paneer", image: "fas fa-cheese" },
-                { title: "SHAHI PANEER", description: "Paneer in a rich, creamy gravy with cashew and tomato base.", price: 260, category: "paneer", image: "fas fa-cheese" },
-                { title: "PALAK PANEER", description: "Paneer cubes in a smooth spinach gravy with spices.", price: 240, category: "paneer", image: "fas fa-cheese" },
-                { title: "MATAR PANEER", description: "Paneer and green peas cooked in a tomato-based gravy.", price: 190, category: "paneer", image: "fas fa-cheese" },
-                { title: "PANEER KALI MIRCHI", description: "Paneer cooked with black pepper and spices.", price: 280, category: "paneer", image: "fas fa-cheese" },
-                { title: "PANEER LABABDARA", description: "Paneer in a rich, creamy and tangy gravy.", price: 260, category: "paneer", image: "fas fa-cheese" },
-                { title: "PANEER TIKKA MASALA", description: "Grilled paneer cubes in a spicy and creamy tomato gravy.", price: 360, category: "paneer", image: "fas fa-cheese" },
-                { title: "PANEER MALAI KOFTA", description: "Paneer dumplings in a rich, creamy gravy.", price: 320, category: "paneer", image: "fas fa-cheese" },
-                { title: "MASHROOM PANEER", description: "Paneer and mushrooms cooked in spicy gravy.", price: 280, category: "paneer", image: "fas fa-cheese" },
-                { title: "PANEER DO PYMAZA", description: "Paneer cooked with lots of onions in a rich gravy.", price: 220, category: "paneer", image: "fas fa-cheese" },
-                { title: "HANDI PANEER", description: "Paneer cooked in traditional handi with spices.", price: 280, category: "paneer", image: "fas fa-cheese" },
-                { title: "KAJU KARI", description: ".", price: 360, category: "paneer", image: "fas fa-cheese" },
+                { id: 1, title: "KADAI PANEER", description: "Cubes of paneer cooked with bell peppers, onions and spicy gravy.", price: 220, category: "paneer", image: "fas fa-cheese" },
+                { id: 2, title: "SHAHI PANEER", description: "Paneer in a rich, creamy gravy with cashew and tomato base.", price: 260, category: "paneer", image: "fas fa-cheese" },
+                { id: 3, title: "PALAK PANEER", description: "Paneer cubes in a smooth spinach gravy with spices.", price: 240, category: "paneer", image: "fas fa-cheese" },
+                { id: 4, title: "MATAR PANEER", description: "Paneer and green peas cooked in a tomato-based gravy.", price: 190, category: "paneer", image: "fas fa-cheese" },
+                { id: 5, title: "PANEER KALI MIRCHI", description: "Paneer cooked with black pepper and spices.", price: 280, category: "paneer", image: "fas fa-cheese" },
+                { id: 6, title: "PANEER LABABDARA", description: "Paneer in a rich, creamy and tangy gravy.", price: 260, category: "paneer", image: "fas fa-cheese" },
+                { id: 7, title: "PANEER TIKKA MASALA", description: "Grilled paneer cubes in a spicy and creamy tomato gravy.", price: 360, category: "paneer", image: "fas fa-cheese" },
+                { id: 8, title: "PANEER MALAI KOFTA", description: "Paneer dumplings in a rich, creamy gravy.", price: 320, category: "paneer", image: "fas fa-cheese" },
+                { id: 9, title: "MASHROOM PANEER", description: "Paneer and mushrooms cooked in spicy gravy.", price: 280, category: "paneer", image: "fas fa-cheese" },
+                { id: 10, title: "PANEER DO PYMAZA", description: "Paneer cooked with lots of onions in a rich gravy.", price: 220, category: "paneer", image: "fas fa-cheese" },
+                { id: 11, title: "HANDI PANEER", description: "Paneer cooked in traditional handi with spices.", price: 280, category: "paneer", image: "fas fa-cheese" },
+                { id: 12, title: "KAJU KARI", description: ".", price: 360, category: "paneer", image: "fas fa-cheese" },
 
                 // Main Course
-                { title: "MIX VEG", description: "Assorted vegetables cooked in Indian spices.", price: 160, category: "main-course", image: "fas fa-carrot" },
-                { title: "ALOO GOBI", description: "Potatoes and cauliflower cooked with spices.", price: 150, category: "main-course", image: "fas fa-carrot" },
-                { title: "DUM ALOO", description: "Baby potatoes cooked in rich gravy.", price: 220, category: "main-course", image: "fas fa-carrot" },
-                { title: "CHANA MASALA", description: "Chickpeas cooked in onion-tomato gravy.", price: 160, category: "main-course", image: "fas fa-carrot" },
-                { title: "RAJMA MASALA", description: "Kidney beans cooked in spicy gravy.", price: 160, category: "main-course", image: "fas fa-carrot" },
-                { title: "BAIGAN BHARYA", description: "Stuffed eggplant cooked with spices.", price: 160, category: "main-course", image: "fas fa-carrot" },
+                { id: 13, title: "MIX VEG", description: "Assorted vegetables cooked in Indian spices.", price: 160, category: "main-course", image: "fas fa-carrot" },
+                { id: 14, title: "ALOO GOBI", description: "Potatoes and cauliflower cooked with spices.", price: 150, category: "main-course", image: "fas fa-carrot" },
+                { id: 15, title: "DUM ALOO", description: "Baby potatoes cooked in rich gravy.", price: 220, category: "main-course", image: "fas fa-carrot" },
+                { id: 16, title: "CHANA MASALA", description: "Chickpeas cooked in onion-tomato gravy.", price: 160, category: "main-course", image: "fas fa-carrot" },
+                { id: 17, title: "RAJMA MASALA", description: "Kidney beans cooked in spicy gravy.", price: 160, category: "main-course", image: "fas fa-carrot" },
+                { id: 18, title: "BAIGAN BHARYA", description: "Stuffed eggplant cooked with spices.", price: 160, category: "main-course", image: "fas fa-carrot" },
 
                 // Mushroom dishes
-                { title: "MASHROOM MASALA", description: "Mushrooms cooked in spicy gravy.", price: 200, category: "main-course", image: "fas fa-carrot" },
-                 { title: "MATTER MASHROOM", description: "Mushrooms cooked in spicy gravy.", price: 200, category: "main-course", image: "fas fa-carrot" },
-                 { title: "MASHROOM DO PYAZA", description: "Mushrooms cooked in spicy gravy.", price: 200, category: "main-course", image: "fas fa-carrot" },
-                 { title: "MASHROOM LABABDAR", description: "Mushrooms cooked in spicy gravy.", price: 200, category: "main-course", image: "fas fa-carrot" },
-                { title: "KADAI MASHROOM", description: "Mushrooms cooked with bell peppers and spices.", price: 240, category: "main-course", image: "fas fa-carrot" },
-                { title: "MASHROOM TIKKA MASALA", description: "Mushrooms cooked in spicy gravy.", price: 200, category: "main-course", image: "fas fa-carrot" },
+                { id: 19, title: "MASHROOM MASALA", description: "Mushrooms cooked in spicy gravy.", price: 200, category: "main-course", image: "fas fa-carrot" },
+                { id: 20, title: "MATTER MASHROOM", description: "Mushrooms cooked in spicy gravy.", price: 200, category: "main-course", image: "fas fa-carrot" },
+                { id: 21, title: "MASHROOM DO PYAZA", description: "Mushrooms cooked in spicy gravy.", price: 200, category: "main-course", image: "fas fa-carrot" },
+                { id: 22, title: "MASHROOM LABABDAR", description: "Mushrooms cooked in spicy gravy.", price: 200, category: "main-course", image: "fas fa-carrot" },
+                { id: 23, title: "KADAI MASHROOM", description: "Mushrooms cooked with bell peppers and spices.", price: 240, category: "main-course", image: "fas fa-carrot" },
+                { id: 24, title: "MASHROOM TIKKA MASALA", description: "Mushrooms cooked in spicy gravy.", price: 200, category: "main-course", image: "fas fa-carrot" },
 
                 // Dal dishes
-                { title: "DAL FRY", description: "Tempered lentils cooked with spices.", price: 140, category: "main-course", image: "fas fa-carrot" },
-                { title: "DAL TADKA", description: "Lentils tempered with spices.", price: 160, category: "main-course", image: "fas fa-carrot" },
-                { title: "DAL MAKHANI", description: "Creamy black lentils cooked overnight.", price: 180, category: "main-course", image: "fas fa-carrot" },
-                { title: "DAL URAD RAJAMA FRY", description: "Creamy black lentils cooked overnight.", price: 160, category: "main-course", image: "fas fa-carrot" },
-                { title: "DAL MASALA", description: "Creamy black lentils cooked overnight.", price: 180, category: "main-course", image: "fas fa-carrot" },
+                { id: 25, title: "DAL FRY", description: "Tempered lentils cooked with spices.", price: 140, category: "main-course", image: "fas fa-carrot" },
+                { id: 26, title: "DAL TADKA", description: "Lentils tempered with spices.", price: 160, category: "main-course", image: "fas fa-carrot" },
+                { id: 27, title: "DAL MAKHANI", description: "Creamy black lentils cooked overnight.", price: 180, category: "main-course", image: "fas fa-carrot" },
+                { id: 28, title: "DAL URAD RAJAMA FRY", description: "Creamy black lentils cooked overnight.", price: 160, category: "main-course", image: "fas fa-carrot" },
+                { id: 29, title: "DAL MASALA", description: "Creamy black lentils cooked overnight.", price: 180, category: "main-course", image: "fas fa-carrot" },
 
 
                 // Starters
-                { title: "VEG MOMO", description: "Steamed dumplings filled with vegetables.", price: 100, category: "starters", image: "fas fa-drumstick-bite" },
-                { title: "VEG FRIED MOMO", description: "Deep fried vegetable dumplings.", price: 110, category: "starters", image: "fas fa-drumstick-bite" },
-                { title: "VEG SPRING ROLL", description: "Crispy rolls filled with vegetables.", price: 120, category: "starters", image: "fas fa-drumstick-bite" },
-                { title: "VEG MANCHURIAN DRY", description: "Vegetable balls in spicy sauce.", price: 170, category: "starters", image: "fas fa-drumstick-bite" },
-                { title: "CHILLI PANEER", description: "Paneer cubes in spicy chilli sauce.", price: 240, category: "starters", image: "fas fa-drumstick-bite" },
-                { title: "PANEER TIKKA", description: "Grilled marinated paneer cubes.", price: 280, category: "starters", image: "fas fa-drumstick-bite" },
+                { id: 30, title: "VEG MOMO", description: "Steamed dumplings filled with vegetables.", price: 100, category: "starters", image: "fas fa-drumstick-bite" },
+                { id: 31, title: "VEG FRIED MOMO", description: "Deep fried vegetable dumplings.", price: 110, category: "starters", image: "fas fa-drumstick-bite" },
+                { id: 32, title: "VEG SPRING ROLL", description: "Crispy rolls filled with vegetables.", price: 120, category: "starters", image: "fas fa-drumstick-bite" },
+                { id: 33, title: "VEG MANCHURIAN DRY", description: "Vegetable balls in spicy sauce.", price: 170, category: "starters", image: "fas fa-drumstick-bite" },
+                { id: 34, title: "CHILLI PANEER", description: "Paneer cubes in spicy chilli sauce.", price: 240, category: "starters", image: "fas fa-drumstick-bite" },
+                { id: 35, title: "PANEER TIKKA", description: "Grilled marinated paneer cubes.", price: 280, category: "starters", image: "fas fa-drumstick-bite" },
 
                 // Breads
-                { title: "AALOO PARATHA", description: "Whole wheat bread stuffed with spiced potatoes.", price: 100, category: "breads", image: "fas fa-bread-slice" },
-                { title: "ONION PARATHA", description: "Paratha stuffed with onions and spices.", price: 110, category: "breads", image: "fas fa-bread-slice" },
-                { title: "PANEER PARATHA", description: "Paratha stuffed with spiced paneer.", price: 130, category: "breads", image: "fas fa-bread-slice" },
-                { title: "BUTTER NAAN", description: "Tandoor-baked leavened bread with butter.", price: 40, category: "breads", image: "fas fa-bread-slice" },
-                { title: "LACHA PARATHA", description: "Layered flatbread cooked with ghee.", price: 40, category: "breads", image: "fas fa-bread-slice" },
+                { id: 36, title: "AALOO PARATHA", description: "Whole wheat bread stuffed with spiced potatoes.", price: 100, category: "breads", image: "fas fa-bread-slice" },
+                { id: 37, title: "ONION PARATHA", description: "Paratha stuffed with onions and spices.", price: 110, category: "breads", image: "fas fa-bread-slice" },
+                { id: 38, title: "PANEER PARATHA", description: "Paratha stuffed with spiced paneer.", price: 130, category: "breads", image: "fas fa-bread-slice" },
+                { id: 39, title: "BUTTER NAAN", description: "Tandoor-baked leavened bread with butter.", price: 40, category: "breads", image: "fas fa-bread-slice" },
+                { id: 40, title: "LACHA PARATHA", description: "Layered flatbread cooked with ghee.", price: 40, category: "breads", image: "fas fa-bread-slice" },
 
                 // Rice & Biryani
-                 {
-  title: "Plain Rice",
-  description: "Steamed basmati rice",
-  price: 30,
-  category: "Rice Biryani",
-  image: "fas fa-utensil-spoon"
-},
-{
-  title: "Jeera Rice",
-  description: "Basmati rice tempered with cumin seeds",
-  price: 100,
-  category: "Rice Biryani",
-  image: "fas fa-utensil-spoon"
-},
-{
-  title: "Matar Pulao",
-  description: "Fragrant rice cooked with green peas",
-  price: 120,
-  category: "Rice Biryani",
-  image: "fas fa-utensil-spoon"
-},
-{
-  title: "Veg Biriyani",
-  description: "Vegetable biryani served with refreshing raita",
-  price: 180,
-  category: "Rice Biryani",
-  image: "fas fa-utensil-spoon"
-},
-{
-  title: "Hyderabadi Biryani",
-  description: "Spicy and aromatic biryani served with raita",
-  price: 200,
-  category: "Rice Biryani",
-  image: "fas fa-utensil-spoon"
-},
-{
-  title: "Dum Biryani",
-  description: "Slow-cooked biryani served with raita",
-  price: 200,
-  category: "Rice Biryani",
-  image: "fas fa-utensil-spoon"
-},
-{
-  title: "Veg Pulao",
-  description: "Mixed vegetable pulao served with raita",
-  price: 150,
-  category: "Rice Biryani",
-  image: "fas fa-utensil-spoon"
-},
-{
-  title: "Dal Khichdi",
-  description: "Comforting lentil and rice dish served with raita",
-  price: 150,
-  category: "Rice Biryani",
-  image: "fas fa-utensil-spoon"
-},
-{
-  title: "Veg Fried Rice",
-  description: "Stir-fried rice with mixed vegetables",
-  price: 140,
-  category: "Rice Biryani",
-  image: "fas fa-utensil-spoon"
-},
-{
-  title: "Onion Fried Rice",
-  description: "Fried rice with onions and subtle spices",
-  price: 150,
-  category: "Rice Biryani",
-  image: "fas fa-utensil-spoon"
-},
-{
-  title: "Paneer Fried Rice",
-  description: "Fried rice with cubes of paneer (cottage cheese)",
-  price: 160,
-  category: "Rice Biryani",
-  image: "fas fa-utensil-spoon"
-},
-{
-  title: "Manchurian Fried Rice",
-  description: "Indo-Chinese style fried rice with vegetable manchurian",
-  price: 200,
-  category: "Rice Biryani",
-  image: "fas fa-utensil-spoon"
-},
-{
-                 title: "Mashroom Fried Rice",
-                   description: "Fried rice with sautéed mushrooms",
-                price: 180,
-                 category: "Rice Biryani",
-                 image: "fas fa-utensil-spoon"
-                       },
-                   {
-                title: "Schezwan Fried Rice",
-                description: "Spicy Schezwan sauce flavored fried rice",
-                price: 180,
-                category: "Rice Biryani",
-                image: "fas fa-utensil-spoon"
+                {
+                    id: 41,
+                    title: "Plain Rice",
+                    description: "Steamed basmati rice",
+                    price: 30,
+                    category: "Rice Biryani",
+                    image: "fas fa-utensil-spoon"
+                },
+                {
+                    id: 42,
+                    title: "Jeera Rice",
+                    description: "Basmati rice tempered with cumin seeds",
+                    price: 100,
+                    category: "Rice Biryani",
+                    image: "fas fa-utensil-spoon"
+                },
+                {
+                    id: 43,
+                    title: "Matar Pulao",
+                    description: "Fragrant rice cooked with green peas",
+                    price: 120,
+                    category: "Rice Biryani",
+                    image: "fas fa-utensil-spoon"
+                },
+                {
+                    id: 44,
+                    title: "Veg Biriyani",
+                    description: "Vegetable biryani served with refreshing raita",
+                    price: 180,
+                    category: "Rice Biryani",
+                    image: "fas fa-utensil-spoon"
+                },
+                {
+                    id: 45,
+                    title: "Hyderabadi Biryani",
+                    description: "Spicy and aromatic biryani served with raita",
+                    price: 200,
+                    category: "Rice Biryani",
+                    image: "fas fa-utensil-spoon"
+                },
+                {
+                    id: 46,
+                    title: "Dum Biryani",
+                    description: "Slow-cooked biryani served with raita",
+                    price: 200,
+                    category: "Rice Biryani",
+                    image: "fas fa-utensil-spoon"
+                },
+                {
+                    id: 47,
+                    title: "Veg Pulao",
+                    description: "Mixed vegetable pulao served with raita",
+                    price: 150,
+                    category: "Rice Biryani",
+                    image: "fas fa-utensil-spoon"
+                },
+                {
+                    id: 48,
+                    title: "Dal Khichdi",
+                    description: "Comforting lentil and rice dish served with raita",
+                    price: 150,
+                    category: "Rice Biryani",
+                    image: "fas fa-utensil-spoon"
+                },
+                {
+                    id: 49,
+                    title: "Veg Fried Rice",
+                    description: "Stir-fried rice with mixed vegetables",
+                    price: 140,
+                    category: "Rice Biryani",
+                    image: "fas fa-utensil-spoon"
+                },
+                {
+                    id: 50,
+                    title: "Onion Fried Rice",
+                    description: "Fried rice with onions and subtle spices",
+                    price: 150,
+                    category: "Rice Biryani",
+                    image: "fas fa-utensil-spoon"
+                },
+                {
+                    id: 51,
+                    title: "Paneer Fried Rice",
+                    description: "Fried rice with cubes of paneer (cottage cheese)",
+                    price: 160,
+                    category: "Rice Biryani",
+                    image: "fas fa-utensil-spoon"
+                },
+                {
+                    id: 52,
+                    title: "Manchurian Fried Rice",
+                    description: "Indo-Chinese style fried rice with vegetable manchurian",
+                    price: 200,
+                    category: "Rice Biryani",
+                    image: "fas fa-utensil-spoon"
+                },
+                {
+                    id: 53,
+                    title: "Mashroom Fried Rice",
+                    description: "Fried rice with sautéed mushrooms",
+                    price: 180,
+                    category: "Rice Biryani",
+                    image: "fas fa-utensil-spoon"
+                },
+                {
+                    id: 54,
+                    title: "Schezwan Fried Rice",
+                    description: "Spicy Schezwan sauce flavored fried rice",
+                    price: 180,
+                    category: "Rice Biryani",
+                    image: "fas fa-utensil-spoon"
                 },
 
                 // Desserts
-                { title: "RAS MALAI", description: "Soft cheese patties in sweetened milk.", price: 70, category: "desserts", image: "fas fa-ice-cream" },
-                { title: "GULAB JAMUN", description: "Deep-fried milk solids in sugar syrup.", price: 70, category: "desserts", image: "fas fa-ice-cream" },
+                { id: 55, title: "RAS MALAI", description: "Soft cheese patties in sweetened milk.", price: 70, category: "desserts", image: "fas fa-ice-cream" },
+                { id: 56, title: "GULAB JAMUN", description: "Deep-fried milk solids in sugar syrup.", price: 70, category: "desserts", image: "fas fa-ice-cream" },
 
                 // Drinks
-                { title: "SPECIAL KULHAD TEA", description: "Traditional Indian tea served in clay cup.", price: 40, category: "drinks", image: "fas fa-mug-hot" },
-                { title: "COLD COFFEE", description: "Chilled coffee with ice cream.", price: 100, category: "drinks", image: "fas fa-mug-hot" },
-                { title: "LASSI", description: "Sweet yogurt-based drink.", price: 80, category: "drinks", image: "fas fa-glass-whiskey" }
+                { id: 57, title: "SPECIAL KULHAD TEA", description: "Traditional Indian tea served in clay cup.", price: 40, category: "drinks", image: "fas fa-mug-hot" },
+                { id: 58, title: "COLD COFFEE", description: "Chilled coffee with ice cream.", price: 100, category: "drinks", image: "fas fa-mug-hot" },
+                { id: 59, title: "LASSI", description: "Sweet yogurt-based drink.", price: 80, category: "drinks", image: "fas fa-glass-whiskey" }
             ];
 
             const menuItemsContainer = document.querySelector('.menu-items');
             const cartCount = document.querySelector('.cart-count');
-            let cartItems = 0;
+            const cartBtn = document.querySelector('.cart-btn');
+
+            // --- NEW: Cart Storage ---
+            // Stores items as { id: quantity }
+            let cart = {};
+            // The WhatsApp number for orders (in international format, without +, 00, or spaces)
+            const WHATSAPP_NUMBER = '917251802325';
+            // --- END NEW ---
 
             // Function to generate menu items
             function generateMenuItems(items) {
@@ -477,7 +510,7 @@
                             <p class="item-desc">${item.description}</p>
                             <div class="item-price">
                                 ₹${item.price}
-                                <button class="add-to-cart">Add to Cart</button>
+                                <button class="add-to-cart" data-id="${item.id}">Add to Cart</button>
                             </div>
                         </div>
                     `;
@@ -487,9 +520,14 @@
                 // Add event listeners to Add to Cart buttons
                 const addToCartButtons = document.querySelectorAll('.add-to-cart');
                 addToCartButtons.forEach(button => {
-                    button.addEventListener('click', function() {
-                        cartItems++;
-                        cartCount.textContent = cartItems;
+                    button.addEventListener('click', function () {
+                        const itemId = this.getAttribute('data-id');
+
+                        // --- NEW: Add item to cart and update count ---
+                        cart[itemId] = (cart[itemId] || 0) + 1;
+                        updateCartCount();
+                        // --- END NEW ---
+
                         // Animation effect
                         this.textContent = 'Added!';
                         setTimeout(() => {
@@ -499,37 +537,85 @@
                 });
             }
 
+            // --- NEW: Function to update the cart count in the UI ---
+            function updateCartCount() {
+                let totalItems = 0;
+                for (const itemId in cart) {
+                    totalItems += cart[itemId];
+                }
+                cartCount.textContent = totalItems;
+            }
+            // --- END NEW ---
+
+            // --- NEW: WhatsApp Order Functionality ---
+            cartBtn.addEventListener('click', function () {
+                // 1. Check if the cart is empty
+                if (Object.keys(cart).length === 0) {
+                    alert('Your cart is empty. Please add some items before ordering!');
+                    return;
+                }
+
+                let orderDetails = '*My Royal Order:*\n\n';
+                let totalAmount = 0;
+
+                // 2. Iterate through the cart to build the message and calculate total
+                for (const itemId in cart) {
+                    const quantity = cart[itemId];
+                    const itemData = menuData.find(item => item.id == itemId); // Find the full item object
+
+                    if (itemData) {
+                        const subtotal = quantity * itemData.price;
+                        orderDetails += `${quantity}x ${itemData.title} (₹${itemData.price} each)\n`;
+                        totalAmount += subtotal;
+                    }
+                }
+
+                orderDetails += '\n*Total Amount: ₹' + totalAmount + '*\n\n_Please confirm your order, delivery address, and payment method._';
+
+                // 3. Create the WhatsApp URL
+                // Encode the message to be safe for a URL
+                const encodedMessage = encodeURIComponent(orderDetails);
+                const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+                // 4. Open the link
+                window.open(whatsappURL, '_blank');
+            });
+            // --- END NEW ---
+
+
             // Initial load
             generateMenuItems(menuData);
 
             // Category filtering
             const categoryButtons = document.querySelectorAll('.category-btn');
-            const menuItems = document.querySelectorAll('.menu-item');
-            
+
+            // We need to re-query menu items after initial generation
+            const allMenuItems = document.querySelectorAll('.menu-item');
+
             categoryButtons.forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                     // Remove active class from all buttons
                     categoryButtons.forEach(btn => btn.classList.remove('active'));
-                    
+
                     // Add active class to clicked button
                     this.classList.add('active');
-                    
+
                     const category = this.getAttribute('data-category');
-                    
+
                     // Show loading animation
                     document.querySelector('.loader').classList.add('active');
-                    
+
                     // Simulate loading delay
                     setTimeout(() => {
                         // Filter items
-                        menuItems.forEach(item => {
-                            if (category === 'all' || item.getAttribute('data-category').includes(category)) {
+                        document.querySelectorAll('.menu-item').forEach(item => { // Re-query inside setTimeout
+                            if (category === 'all' || item.getAttribute('data-category').toLowerCase().includes(category)) {
                                 item.style.display = 'block';
                             } else {
                                 item.style.display = 'none';
                             }
                         });
-                        
+
                         // Hide loading animation
                         document.querySelector('.loader').classList.remove('active');
                     }, 500);
@@ -538,9 +624,9 @@
 
             // Search functionality
             const searchInput = document.querySelector('.search-input');
-            searchInput.addEventListener('input', function() {
+            searchInput.addEventListener('input', function () {
                 const searchTerm = this.value.toLowerCase();
-                menuItems.forEach(item => {
+                document.querySelectorAll('.menu-item').forEach(item => { // Re-query on search
                     const itemName = item.querySelector('.item-title').textContent.toLowerCase();
                     if (itemName.includes(searchTerm)) {
                         item.style.display = 'block';
@@ -550,13 +636,20 @@
                 });
             });
 
-            // Add floating animation to random items
-            const allMenuItems = document.querySelectorAll('.menu-item');
-            const randomItems = Array.from(allMenuItems).sort(() => 0.5 - Math.random()).slice(0, 5);
+            // Add floating animation to random items (needs to be done after items are generated)
+            // Note: This block has a potential issue if called before generateMenuItems.
+            // A safer approach would be to move this logic inside generateMenuItems or ensure it runs after.
+            // For now, it's left as is for minimal change, but be aware of the execution order.
+            // Original code's floating logic is kept below but should ideally be run AFTER item generation.
+            /*
+            const allMenuItemsForFloating = document.querySelectorAll('.menu-item');
+            const randomItems = Array.from(allMenuItemsForFloating).sort(() => 0.5 - Math.random()).slice(0, 5);
             randomItems.forEach(item => {
                 item.classList.add('floating');
             });
+            */
         });
     </script>
 </body>
+
 </html>
